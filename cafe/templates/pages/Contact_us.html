@@ -1,0 +1,66 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+<div class="container bg-light p-5">
+    <!-- Info -->
+    <h1>Contact Us</h1>
+    <div class="row">
+        <div class="col-md-3">
+            <h5>Silicon Hills, Patia, Bhubaneswar, Khordha, Odishapin-751024 Bhubaneswar Khordha Odisha India</h5>
+        </div>
+        <div class="col-md-9 p-5">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d7481.561366543081!2d85.80633600000002!3d20.350677!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x9288172f3a98c7a4!2sSilicon%20Institute%20of%20Technology!5e0!3m2!1sen!2sin!4v1658677373924!5m2!1sen!2sin" 
+             width="400"
+             
+             height="300" 
+             style="border:0;" 
+             allowfullscreen="" 
+             loading="lazy" 
+             referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+    </div>
+    <div class="div-container">
+        <h1 class="h1 border-bottom border-dark">Get in Touch</h1>
+        <div class="row">
+            <div class="col-md-7" >
+                <form action="thankyou.html" onsubmit="return validate()"> 
+                    <div class="mb-1">
+                        <label for="name">Name<span class="text-danger">*</span></label>
+                        <input type="text" name="name" id="name" class="form-control">
+                        <label for="name_error" id="name_error" class="text-danger"></label>
+                    </div>
+                    <div class="mb-1">
+                        <label for="mobile">Mobile<span class="text-danger">*</span></label>
+                        <input type="tel" name="mobile" id="mobile" class="form-control">
+                        <label for="mobile_error" id="mobile_error" class="text-danger"></label>
+                    </div>
+                    <div class="mb-1">
+                        <label for="email">Email<span class="text-danger">*</span></label>
+                        <input type="text" name="email" id="email" class="form-control">
+                        <label for="email_error" id="email_error" class="text-danger"></label>
+                    </div>
+                    <div class="mb-1">
+                        <h4 for="suggestion">Any Suggestion:-</h4>
+                        <textarea type="text" name="suggestion" id="suggestion" class="form-control" rows="3" cols="50"></textarea><br>
+                        <label for="suggestion_error" id="suggestion_error" class="text-danger"></label>
+                    </div>
+                    <input type="submit" value="Submit" class="btn btn-primary w-40 my-2" style="align-items: center;">
+                </form>
+            </div>
+            <div class="col-md-5 py-5" style="align-items:center;">
+                <div class="links-mb-1">
+                    <h5>Contact me at:</h5>
+                    <a class="d-block"><i class="bi bi-telephone-fill"></i> +91 8434414398</a><br>
+                    <a class="d-block"> <i class="bi bi-whatsapp"></i>+91 8434414398 </a><br>
+                    <a class="d-block"><i class="bi bi-facebook"></i> facebook</a><br>
+                    <a class="d-block"> <i class="bi bi-instagram"></i> instagram</a><br>
+                    <a class="d-block"> <i class="bi bi-envelope-fill"></i>pratiksingh4386@gmail.com</a><br>
+                </div>
+            </div>
+        </div>
+    </div>  
+{% endblock content %}
+{% block extrajs %}
+    <script src="{% static 'js/form-validator.js' %}"></script>
+{% endblock extrajs %}

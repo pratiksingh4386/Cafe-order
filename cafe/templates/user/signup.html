@@ -1,0 +1,66 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+<div class="container">
+  <div class="row my-3">
+      <div class="col-md-4 mx-auto">
+          <div class="card">
+              <div class="card-header bg-dark text-light">
+                  <h3 class="h3">Sign up</h3>
+              </div>
+              <div class="card-body">
+                {% if messages %}
+                  {% for message  in messages %}
+                    <p class={{message.tags}}>{{message}}</p>
+                  {% endfor %}
+                {% endif %}
+                  <form action={% url 'signup' %} method = "post"  onSubmit="return validate()">
+                      {% csrf_token %}
+                  <div class="mb-1">
+                      <label for="first_name">First Name</label>
+                      <input type="text" name="first_name" id ="first_name" class="form-control w-100">
+                      <label for="first_name_error" id = "first_name_error" class="text-danger"></label>
+                  </div>
+
+                  <div class="mb-1">
+                      <label for="last_name">last name</label>
+                      <input type="text" name="last_name" id ="last_name" class="form-control w-100">
+                      <label for="last_name_error" id = "last_name_error" class="text-danger"></label>
+                  </div>
+
+                  <div class="mb-1">
+                      <label for="email">e mail</label>
+                      <input type="text" name="email" id ="email" class="form-control w-100">
+                      <label for="text" id = "text" class="text-danger"></label>
+                      <label for="email_error" id = "email_error" class="text-danger"></label>
+                  </div>
+
+                  <div class="mb-1">
+                      <label for="username">SIC number</label>
+                      <input type="text" name="username" id ="username" class="form-control w-100">
+                      <label for="username_error" id = "username_error" class="text-danger"></label>
+                  </div>
+
+                  <div class="mb-1">
+                      <label for="password">password</label>
+                      <input type="Password" name="password" id ="password" class="form-control w-100">
+                      <label for="password_error" id = "password_error" class="text-danger"></label>
+                  </div>
+
+                  <div class="mb-1">
+                      <label for="password2">Confirm password</label>
+                      <input type="Password" name="password2" id ="password2" class="form-control w-100">
+                      <label for="password2_error" id = "password2_error" class="text-danger"></label>
+                  </div>
+                  <input type = "submit" value="Sign Up" class="btn btn-primary mx-auto d-flex justify-center">
+              </form>
+              
+              </div>
+         
+          </div>
+      </div>
+  </div>
+</div>
+ 
+{% endblock content %}

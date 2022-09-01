@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% block content %}
+    <div class="row my - 5">
+        <div class="col-md-4 mx-auto">
+            <div class="card-body">
+                {% if messages %}
+                  {% for message  in messages %}
+                    <p class={{message.tags}}>{{message}}</p>
+                  {% endfor %}
+                {% endif %}
+                <form action={% url 'place_order' %} method = "post"  >
+                      {% csrf_token %}
+                  <div class="mb-1">
+                      <label for="otp">For otp check registered mail id</label>
+                      <input type="text" name="otp" id ="otp" class="form-control w-100" placeholder ="otp" required>
+                      {% comment %} <label for="otp_error" id = "otp_error" class="text-danger"></label> {% endcomment %}
+                  </div>
+                  <input type = "submit" value="verify" class="btn btn-primary mx-auto d-flex justify-center">
+              </form>
+              
+              </div>
+
+        </div>
+    </div> 
+{% endblock content %}

@@ -1,0 +1,11 @@
+.cafe-img{
+    height : 700px;
+    width : 100%;  
+}
+.cardd-img{
+    height: 60%;
+
+}
+.cardd-img:hover {
+    transform: scale(1.1);
+}

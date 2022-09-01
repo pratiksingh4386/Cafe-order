@@ -1,0 +1,94 @@
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'bootstrpfile/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/styles.css'%}">
+    <title>Silicon cafe</title>
+    {% block css %}
+      <link rel="stylesheet" href="{% static 'css/cartstyle.css' %}">
+    {% endblock css %}
+
+</head>
+<body>
+    {% comment %} <nav>
+        <a href="{% url 'Home' %}">Home</a>
+        <a href="{% url 'About' %}">About</a>
+        <a href="{% url 'Contact_us' %}">Contact us</a>
+    </nav> {% endcomment %}
+    <nav class="navbar navbar-expand-lg bg-dark ">
+        <div class="container ">
+          <a class="navbar-brand text-light" href="#"><b><b><b><b>SITCAFE</b></b></b></b></a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+
+              <li class="nav-item">
+                <a class="nav-link active text-light" aria-current="page" href="{% url 'Home'%}">Home</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link active text-light" aria-current="page" href="{% url 'menu' %}">Menu</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link active text-light" aria-current="page" href="{% url 'About' %}">About Us</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link active text-light" aria-current="page" href="{% url 'Contact_us' %}">Contact Us</a>
+              </li>
+
+
+              {% if user.is_authenticated %}
+              <li class="nav-item">
+                <a class="nav-link active text-light" aria-current="page" href="{% url 'cart' %}">Cart</a>
+              </li>
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle text-light" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  Welcome {{user}}
+                </a>
+                <ul class="dropdown-menu">
+                  <li><a class="dropdown-item" href="#">Action</a></li>
+                  <li><a class="dropdown-item" href="#">Another action</a></li>
+                  <li><hr class="dropdown-divider"></li>
+                  <li><a class="dropdown-item" href = "{% url 'signout' %}">logout</a></li>
+                </ul>
+              </li>
+              {% else %}
+                
+              <li class="nav-item">
+                <a class="nav-link active text-light" aria-current="page" href="{% url 'signup' %}">Sign Up</a>
+              </li>
+
+              <li class="nav-item">
+                <a class="nav-link active text-light" aria-current="page" href="{% url 'sign_in' %}">SignIn</a>
+              </li>
+              {% endif %}
+
+            </ul>
+            <form class="d-flex" role="search" action ="{% url 'search' %}" method ="post">
+              {% csrf_token %}
+              <input class="form-control me-2" type="search" name = "search" placeholder="Search" aria-label="Search">
+              <button class="btn btn-outline-success" type="submit">Search</button>
+            </form>
+          </div>
+        </div>
+      </nav>
+    {% block content %}
+    
+    {% endblock content %}
+
+    <footer class = "bg-dark p-3 text-center text-light"  >
+        &copy; Pratik kumar 2022 SITCAFE
+    </footer>
+    {% block extrajs %}
+      <script src ="{% static 'js/cart.js' %}"></script>
+    {% endblock extrajs %}
+    <script src "{% static 'bootstrpfile/css/bootstrap.bundle.js'%}"></script>
+    <!-- JavaScript Bundle with Popper -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
+</body>
+</html>

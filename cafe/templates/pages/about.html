@@ -1,0 +1,41 @@
+{% extends 'base.html' %} 
+{% block content %}
+    <h1>Silicon Food Court - Serving Everything Special</h1>
+    <h5>SiliconTech has four dining halls and one cafeteria within the campus. Each of them serves freshly prepared, delicious, nutritious food from a variety of cuisines. There are exclusive dining halls for vegetarians, non-vegetarians, and college staff. A common dining hall serves food for guests as well as staff members. A dedicated Canteen Committee of student representatives, supervisors, and faculty manages the operations of the canteen.</h5>
+    {% comment %} {{a}}
+    {{b}}
+    {% if a > 0 %}
+    <p>positive</p>
+    {% elif a < 0 %}
+    <p>Negative</p>
+    {% else %}
+    <p>Zero</p>
+    {% endif %}
+    {{foods}}
+    <ul>
+        {% for food in foods %}
+            <li>{{food}}</li>
+        {%endfor%}
+    </ul>
+    {{students}}
+    <table border="3" width="5%">
+        <tr>
+            <th>Name</th>
+            <th>Mark</th>
+            <th>Status</th>
+         </tr>
+         {% for name,mark in students.items %}
+            <tr>
+                <td>{{name}}</td>
+                <td>{{mark}}</td>
+                <td>
+                    {% if mark >= 50%}
+                        Pass
+                    {% else %}
+                        Fail
+                    {% endif %}
+                </td>
+            </tr>
+            {% endfor%}
+    </table> {% endcomment %}
+{% endblock content %} 
